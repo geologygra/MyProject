@@ -1,0 +1,20 @@
+project/
+├── cloudfunctions/
+│   ├── addLecture/
+│   ├── deleteLecture/
+│   ├── getLectures/
+│   └── updateLecture/
+└── miniprogram/
+    ├── images/
+    │   ├── home.png
+    │   ├── home-active.png
+    │   ├── plus.png
+    │   └── plus-active.png
+    ├── pages/
+    │   ├── index/
+    │   ├── add/
+    │   ├── detail/
+    │   └── edit/
+    ├── app.js
+    ├── app.json
+    └── app.wxss 

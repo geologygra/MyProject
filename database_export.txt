@@ -1,0 +1,1 @@
+{"_id":"826b4f5067b6be55032ae7681d3cafe1","title":"帝国末日：清王朝最后十年","speaker":"雷颐（著名历史学者、中国社科院近代史所研究员）","time":"2025-02-21 19:30","location":"","description":"","createTime":{"$date":"2025-02-21T11:30:00Z"},"updateTime":{"$date":"2025-03-05T15:13:04.111Z"},"status":"ended","categories":["academic"]}
