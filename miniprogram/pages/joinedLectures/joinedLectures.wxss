@@ -1,0 +1,72 @@
+.container {
+  padding: 20rpx;
+}
+
+.lecture-list {
+  width: 100%;
+}
+
+.lecture-item {
+  background: #fff;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.lecture-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 16rpx;
+  color: #333;
+}
+
+.lecture-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.lecture-status {
+  margin-top: 16rpx;
+  font-size: 24rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 4rpx;
+  display: inline-block;
+}
+
+.lecture-status.upcoming {
+  background: rgba(24, 144, 255, 0.1);
+  color: #1890ff;
+}
+
+.lecture-status.ongoing {
+  background: rgba(82, 196, 26, 0.1);
+  color: #52c41a;
+}
+
+.lecture-status.ended {
+  background: rgba(0, 0, 0, 0.05);
+  color: #999;
+}
+
+.empty-tip {
+  text-align: center;
+  padding: 100rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}
+
+.loading-tip {
+  text-align: center;
+  padding: 20rpx 0;
+  color: #999;
+  font-size: 24rpx;
+}
+
+/* 添加加载动画效果 */
+.loading-tip text {
+  display: inline-block;
+} 

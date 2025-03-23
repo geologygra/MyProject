@@ -1,0 +1,348 @@
+.container {
+  padding: 30rpx;
+  background: #f5f5f5;
+  padding-bottom: 120rpx;
+}
+
+.lecture-detail {
+  background: #fff;
+  border-radius: 12rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.poster-section {
+  width: 100%;
+  height: 600rpx;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.poster-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.header {
+  padding: 30rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.tags {
+  display: flex;
+  gap: 10rpx;
+}
+
+.tag {
+  font-size: 24rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+  background: #f5f5f5;
+  color: #666;
+}
+
+/* 分类标签样式 */
+.tag-academic {
+  background: #e6f3ff;
+  color: #1890ff;
+}
+
+.tag-technology {
+  background: #f0f5ff;
+  color: #2f54eb;
+}
+
+.tag-culture {
+  background: #f6ffed;
+  color: #52c41a;
+}
+
+.tag-science {
+  background: #fff2e8;
+  color: #fa8c16;
+}
+
+/* 状态标签样式 */
+.tag-upcoming {
+  background: #e6f7ff;
+  color: #1890ff;
+}
+
+.tag-ongoing {
+  background: #f6ffed;
+  color: #52c41a;
+}
+
+.tag-ended {
+  background: #f5f5f5;
+  color: #999;
+}
+
+.info-section {
+  padding: 30rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.info-item {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  width: 140rpx;
+  color: #666;
+  font-size: 28rpx;
+}
+
+.content {
+  flex: 1;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.description-section {
+  padding: 30rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.description-content {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.meta-info {
+  padding: 20rpx 30rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.meta-info text {
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30rpx;
+}
+
+.button-group button {
+  width: 45%;
+}
+
+button[type="primary"] {
+  background: #07c160;
+}
+
+button[type="warn"] {
+  background: #ff4d4f;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin: 20rpx 0;
+}
+
+.category-tag {
+  padding: 6rpx 16rpx;
+  border-radius: 4rpx;
+  font-size: 24rpx;
+  color: #fff;
+}
+
+.admin-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.admin-btn {
+  flex: 1;
+  margin: 0 10rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+}
+
+.edit-btn {
+  background: #07c160;
+  color: #fff;
+}
+
+.delete-btn {
+  background: #ff4d4f;
+  color: #fff;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 20rpx;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1rpx solid #eee;
+}
+
+.action-btn {
+  flex: 1;
+  margin: 0 10rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  color: #666;
+}
+
+/* 高亮已收藏状态 */
+.collect-btn.active {
+  background: #ffe6e6;
+  color: #ff4d4f;
+}
+
+/* 高亮已参加状态 */
+.join-btn.active {
+  background: #e6f7ff;
+  color: #1890ff;
+}
+
+/* 复制按钮样式 */
+.copy-btn {
+  background: #f0f7ff;
+  color: #1890ff;
+}
+
+.copy-btn .iconfont {
+  color: #1890ff;
+}
+
+.action-btn .iconfont {
+  margin-right: 8rpx;
+  font-size: 32rpx;
+}
+
+.tags-section {
+  background: #fff;
+  padding: 30rpx;
+  margin-top: 20rpx;
+  border-radius: 12rpx;
+}
+
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-top: 16rpx;
+}
+
+.tag-item {
+  font-size: 26rpx;
+  padding: 8rpx 24rpx;
+  border-radius: 6rpx;
+  display: inline-block;
+}
+
+/* 底部操作栏 */
+.bottom-actions {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20rpx;
+    background-color: #fff;
+    box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.action-btn {
+    flex: 1;
+    margin: 0 10rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 40rpx;
+    font-size: 28rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f8f8;
+    border: none;
+    padding: 0;
+}
+
+.action-btn::after {
+    border: none;
+}
+
+.action-btn .iconfont {
+    margin-right: 10rpx;
+    font-size: 32rpx;
+}
+
+.collect-btn {
+    background: #fff5e6;
+    color: #ff9900;
+}
+
+.collect-btn .iconfont {
+    color: #ff9900;
+}
+
+.join-btn {
+    background: #e6f7ff;
+    color: #1890ff;
+}
+
+.join-btn .iconfont {
+    color: #1890ff;
+}
+
+.share-btn {
+    background: #f6ffed;
+    color: #52c41a;
+}
+
+.share-btn .iconfont {
+    color: #52c41a;
+}
+
+/* 确保内容不被底部操作栏遮挡 */
+.container {
+    padding-bottom: 120rpx;
+} 

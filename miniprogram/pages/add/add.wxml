@@ -1,0 +1,176 @@
+<!--pages/add/add.wxml-->
+<view class="container">
+  <form bindsubmit="onSubmit">
+    <view class="form-item">
+      <text class="label">讲座名称</text>
+      <input name="title" placeholder="请输入讲座名称" />
+    </view>
+    
+    <view class="form-item">
+      <text class="label">时间</text>
+      
+      <!-- 日期选择 -->
+      <view class="date-section">
+        <view class="quick-dates">
+          <view 
+            wx:for="{{quickTimeOptions}}" 
+            wx:key="value"
+            class="date-option {{selectedDate === getQuickDate(item.value) ? 'active' : ''}}"
+            bindtap="onQuickDateSelect"
+            data-days="{{item.value}}"
+          >
+            {{item.text}}
+          </view>
+          <view 
+            class="date-option custom {{isCustomDate ? 'active' : ''}}"
+            bindtap="showDatePicker"
+          >
+            其他日期
+          </view>
+        </view>
+        
+        <!-- 日期输入框 -->
+        <view class="date-input-container" wx:if="{{showDateInput}}">
+          <input 
+            class="date-input"
+            type="text"
+            placeholder="YYYY-MM-DD"
+            value="{{dateInputValue}}"
+            bindinput="onDateInput"
+            maxlength="10"
+          />
+          <text class="date-input-hint">请输入日期，如：2024-03-20</text>
+        </view>
+        
+        <!-- 显示已选日期 -->
+        <view class="selected-info" wx:if="{{selectedDate}}">
+          <text>{{selectedDate}}</text>
+        </view>
+      </view>
+
+      <!-- 时间选择 -->
+      <view class="time-section">
+        <view class="common-times">
+          <view 
+            wx:for="{{commonTimes}}" 
+            wx:key="*this"
+            class="time-option {{selectedTime === item ? 'active' : ''}}"
+            bindtap="onTimeSelect"
+            data-time="{{item}}"
+          >
+            {{item}}
+          </view>
+          <view 
+            class="time-option custom {{!commonTimes.includes(selectedTime) ? 'active' : ''}}"
+            bindtap="showTimePicker"
+          >
+            其他时间
+          </view>
+        </view>
+        
+        <!-- 时间输入框 -->
+        <view class="time-input-container" wx:if="{{showTimeInput}}">
+          <input 
+            class="time-input"
+            type="text"
+            placeholder="HH:MM"
+            value="{{timeInputValue}}"
+            bindinput="onTimeInput"
+            maxlength="5"
+          />
+          <text class="time-input-hint">请输入时间，如：14:30</text>
+        </view>
+        
+        <!-- 显示已选时间 -->
+        <view class="selected-info" wx:if="{{selectedTime}}">
+          <text>{{selectedTime}}</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 在快速选择按钮下方添加隐藏的日期选择器 -->
+    <picker 
+        mode="date" 
+        value="{{selectedDate}}"
+        start="{{dateRange.start}}"
+        end="{{dateRange.end}}"
+        bindchange="onCustomDateSelect"
+        style="{{showCustomDatePicker ? '' : 'display: none;'}}"
+    >
+        <view class="picker-item">
+            {{selectedDate || '请选择日期'}}
+        </view>
+    </picker>
+    
+    <view class="form-item">
+      <text class="label">主讲人</text>
+      <input name="speaker" placeholder="请输入主讲人姓名" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">主办方</text>
+      <input name="organizer" placeholder="请输入主办方名称" />
+    </view>
+    
+    <view class="form-item">
+      <text class="label">地点</text>
+      <input name="location" placeholder="请输入讲座地点" />
+    </view>
+    
+    <view class="form-item">
+      <text class="label">简介</text>
+      <textarea name="description" placeholder="请输入讲座简介" maxlength="200" />
+    </view>
+    
+    <!-- 标签选择区域 -->
+    <view class="form-item">
+      <text class="label">标签</text>
+      <!-- 已选标签显示区域 -->
+      <view class="selected-tags" wx:if="{{selectedTags.length > 0}}">
+        <view 
+          wx:for="{{selectedTags}}" 
+          wx:key="*this" 
+          class="selected-tag"
+        >
+          {{item}}
+          <text class="remove-tag" bindtap="removeTag" data-tag="{{item}}">×</text>
+        </view>
+      </view>
+      <!-- 预设标签列表 -->
+      <view class="tag-list">
+        <view 
+          wx:for="{{allTags}}" 
+          wx:key="*this"
+          class="tag-item {{selectedTags.includes(item) ? 'selected' : ''}}"
+          bindtap="toggleTag"
+          data-tag="{{item}}"
+        >
+          {{item}}
+        </view>
+      </view>
+      <!-- 自定义标签输入区域 -->
+      <view class="custom-tag-input">
+        <input 
+          type="text" 
+          placeholder="添加自定义标签" 
+          value="{{newTag}}"
+          bindinput="onTagInput"
+        />
+        <button size="mini" bindtap="addTag">添加</button>
+      </view>
+      <text class="hint">最多可选择5个标签</text>
+    </view>
+    
+    <!-- 在现有表单中添加海报URL输入区域 -->
+    <view class="form-item">
+      <text class="label">海报</text>
+      <input 
+        name="posterLink" 
+        placeholder="请输入海报图片URL地址" 
+        value="{{posterLink}}"
+      />
+    </view>
+    
+    <button form-type="submit" type="primary">提交</button>
+  </form>
+</view>

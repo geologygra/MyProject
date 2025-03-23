@@ -1,0 +1,140 @@
+<!--pages/edit/edit.wxml-->
+<view class="container">
+  <form bindsubmit="onSubmit">
+    <!-- 海报预览和上传区域 -->
+    <view class="form-item">
+      <text class="label">海报</text>
+      <input 
+        name="posterLink" 
+        placeholder="请输入海报图片URL地址" 
+        value="{{lecture.posterLink || ''}}"
+        bindinput="onPosterLinkInput"
+      />
+      <view class="checkbox-item">
+        <checkbox 
+          name="showInSwiper" 
+          checked="{{lecture.showInSwiper}}"
+          bindtap="toggleShowInSwiper"
+        />
+        <text>在首页轮播展示</text>
+      </view>
+      <view class="poster-preview" wx:if="{{lecture.posterLink}}">
+        <image 
+          src="{{lecture.posterLink}}" 
+          mode="aspectFit" 
+          class="preview-image"
+          bindtap="previewImage"
+        />
+      </view>
+    </view>
+
+    <!-- 基本信息区域 -->
+    <view class="form-item">
+      <text class="label required">讲座名称</text>
+      <input 
+        name="title" 
+        placeholder="请输入讲座名称" 
+        value="{{lecture.title}}"
+        bindinput="onTitleInput"
+      />
+    </view>
+    
+    <view class="form-item">
+      <text class="label required">主讲人</text>
+      <input 
+        name="speaker" 
+        placeholder="请输入主讲人姓名" 
+        value="{{lecture.speaker}}" 
+      />
+    </view>
+    
+    <!-- 时间选择区域 -->
+    <view class="form-item">
+      <text class="label required">讲座时间</text>
+      <view class="time-picker">
+        <picker mode="date" name="date" bindchange="onDateChange">
+          <view class="picker-item">{{selectedDate || '选择日期'}}</view>
+        </picker>
+        <picker mode="time" name="time" bindchange="onTimeChange">
+          <view class="picker-item">{{selectedTime || '选择时间'}}</view>
+        </picker>
+      </view>
+    </view>
+    
+    <view class="form-item">
+      <text class="label">地点</text>
+      <input 
+        name="location" 
+        placeholder="请输入讲座地点" 
+        value="{{lecture.location}}" 
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">观看方式</text>
+      <input 
+        name="watchMethod" 
+        placeholder="请输入观看方式，如：线下/线上/直播链接等" 
+        value="{{lecture.watchMethod}}"
+      />
+    </view>
+
+    <!-- 分类选择区域 -->
+    <view class="form-item">
+      <text class="label">讲座标签</text>
+      <input 
+        name="newTag" 
+        placeholder="输入新标签后点击添加" 
+        value="{{newTag}}"
+        bindinput="onTagInput"
+      />
+      <button class="add-tag-btn" size="mini" bindtap="addTag">添加标签</button>
+      
+      <!-- 已选标签 -->
+      <view class="selected-tags" wx:if="{{selectedTags.length > 0}}">
+        <view class="tag" 
+          wx:for="{{selectedTags}}" 
+          wx:key="*this"
+          bindtap="removeTag"
+          data-tag="{{item}}"
+        >
+          {{item}} <text class="remove">×</text>
+        </view>
+      </view>
+      
+      <!-- 预设标签 -->
+      <view class="preset-tags">
+        <text class="subtitle">常用标签：</text>
+        <view class="tags-grid">
+          <view class="tag {{selectedTags.includes(tag) ? 'selected' : ''}}"
+            wx:for="{{allTags}}"
+            wx:for-item="tag"
+            wx:key="*this"
+            bindtap="toggleTag"
+            data-tag="{{tag}}"
+          >
+            {{tag}}
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 讲座简介区域 -->
+    <view class="form-item">
+      <text class="label">讲座简介</text>
+      <textarea 
+        name="description" 
+        placeholder="请输入讲座简介" 
+        maxlength="500" 
+        value="{{lecture.description}}"
+      />
+      <text class="hint">建议填写讲座的主要内容、亮点等信息</text>
+    </view>
+    
+    <!-- 提交按钮 -->
+    <view class="button-group">
+      <button form-type="submit" type="primary" loading="{{submitting}}">保存修改</button>
+      <button type="default" bindtap="onCancel">取消</button>
+    </view>
+  </form>
+</view>

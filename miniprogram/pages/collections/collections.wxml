@@ -1,0 +1,46 @@
+<view class="container">
+  <view class="lecture-list">
+    <block wx:if="{{lectures.length > 0}}">
+      <view 
+        wx:for="{{lectures}}" 
+        wx:key="_id" 
+        class="lecture-item"
+        bindtap="goToDetail"
+        data-id="{{item._id}}"
+      >
+        <view class="lecture-title">{{item.title}}</view>
+        <view class="lecture-info">
+          <text>主讲人：{{item.speaker}}</text>
+          <text>时间：{{item.time}}</text>
+          <text>地点：{{item.location}}</text>
+        </view>
+        <!-- 分类标签 -->
+        <view class="lecture-tags">
+          <view 
+            wx:for="{{item.categories}}" 
+            wx:for-item="category" 
+            wx:key="*this"
+            class="category-tag"
+            style="background: {{categories[category].color}}20; color: {{categories[category].color}}"
+          >
+            {{categories[category].text}}
+          </view>
+        </view>
+        <view class="lecture-status {{item.status}}">
+          {{item.status === 'upcoming' ? '即将开始' : 
+            item.status === 'ongoing' ? '进行中' : '已结束'}}
+        </view>
+      </view>
+      
+      <view class="loading-tip" wx:if="{{loading}}">
+        <text>加载中...</text>
+      </view>
+      <view class="loading-tip" wx:if="{{!hasMore && lectures.length > 0}}">
+        <text>没有更多了</text>
+      </view>
+    </block>
+    <view wx:else class="empty-tip">
+      暂无收藏的讲座
+    </view>
+  </view>
+</view> 

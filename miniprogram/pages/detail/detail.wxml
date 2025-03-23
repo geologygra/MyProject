@@ -1,0 +1,111 @@
+<!--pages/detail/detail.wxml-->
+<view class="container">
+  <view class="lecture-detail">
+    <view class="poster-section" wx:if="{{lecture.posterLink || lecture.posterUrl}}">
+      <image 
+        src="{{lecture.posterLink || lecture.posterUrl}}" 
+        mode="aspectFit" 
+        class="poster-image"
+        bindtap="previewPoster"
+      ></image>
+    </view>
+
+    <view class="info-section">
+      <view class="lecture-title">{{lecture.title}}</view>
+      
+      <view class="info-item">
+        <text class="label">主讲人</text>
+        <text class="content">{{lecture.speaker}}</text>
+      </view>
+      
+      <view class="info-item">
+        <text class="label">主办方</text>
+        <text class="content">{{lecture.organizer || '暂无'}}</text>
+      </view>
+      
+      <view class="info-item">
+        <text class="label">时间</text>
+        <text class="content">{{lecture.time}}</text>
+      </view>
+      
+      <view class="info-item">
+        <text class="label">地点</text>
+        <text class="content">{{lecture.location}}</text>
+      </view>
+      
+      <view class="info-item">
+        <text class="label">观看方式</text>
+        <text class="content">{{lecture.watchMethod || '暂无'}}</text>
+      </view>
+    </view>
+
+    <view class="description-section" wx:if="{{lecture.description}}">
+      <view class="section-title">讲座简介</view>
+      <text class="description-content">{{lecture.description}}</text>
+    </view>
+
+    <view class="meta-info">
+      <text>创建时间：{{formatTime(lecture.createTime)}}</text>
+      <text wx:if="{{lecture.updateTime}}">最后更新：{{formatTime(lecture.updateTime)}}</text>
+    </view>
+
+    <view class="tags-section" wx:if="{{lecture.tags && lecture.tags.length > 0}}">
+      <view class="section-title">标签</view>
+      <view class="tags-list">
+        <view class="tag-item" 
+          wx:for="{{lecture.tags}}" 
+          wx:key="*this"
+          style="background: {{getTagColor(item).bg}} !important; color: {{getTagColor(item).text}} !important;"
+        >
+          {{item}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 管理按钮区域 -->
+  <view class="admin-buttons" wx:if="{{isAdmin}}">
+    <button class="admin-btn edit-btn" bindtap="editLecture">编辑讲座</button>
+    <button class="admin-btn delete-btn" bindtap="deleteLecture">删除讲座</button>
+  </view>
+
+  <!-- 操作按钮区域 -->
+  <view class="action-buttons">
+    <button class="action-btn collect-btn {{lecture.isCollected ? 'active' : ''}}" bindtap="toggleCollect">
+      <text class="iconfont {{lecture.isCollected ? 'icon-star-filled' : 'icon-star'}}"></text>
+      <text>{{lecture.isCollected ? '已收藏' : '收藏'}}</text>
+    </button>
+    
+    <button class="action-btn join-btn {{lecture.isJoined ? 'active' : ''}}" bindtap="toggleJoin">
+      <text class="iconfont {{lecture.isJoined ? 'icon-check-circle' : 'icon-plus-circle'}}"></text>
+      <text>{{lecture.isJoined ? '已参加' : '参加'}}</text>
+    </button>
+
+    <button class="action-btn copy-btn" bindtap="copyLectureInfo">
+      <text>复制信息</text>
+    </button>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-actions">
+    <button class="action-btn collect-btn" bindtap="toggleCollect">
+      <text class="iconfont {{lecture.isCollected ? 'icon-star-filled' : 'icon-star'}}"></text>
+      <text>{{lecture.isCollected ? '已收藏' : '收藏'}}</text>
+    </button>
+    <button class="action-btn join-btn" bindtap="toggleJoin">
+      <text class="iconfont {{lecture.isJoined ? 'icon-check-circle' : 'icon-plus-circle'}}"></text>
+      <text>{{lecture.isJoined ? '已参加' : '参加'}}</text>
+    </button>
+    <button class="action-btn copy-btn" bindtap="copyLectureInfo">
+      <text class="iconfont icon-copy"></text>
+      <text>复制信息</text>
+    </button>
+    <button class="action-btn share-btn" bindtap="shareToTimeline">
+      <text class="iconfont icon-share"></text>
+      <text>分享</text>
+    </button>
+  </view>
+
+  <!-- 用于生成分享图片的canvas，设置隐藏 -->
+  <canvas canvas-id="shareCanvas" style="width: {{canvasWidth}}rpx; height: {{canvasHeight}}rpx; position: fixed; left: -9999rpx;"></canvas>
+</view>

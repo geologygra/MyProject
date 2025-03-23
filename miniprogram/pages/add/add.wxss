@@ -1,0 +1,438 @@
+.container {
+  padding: 20rpx;
+}
+
+.form-item {
+  background: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 8rpx;
+}
+
+.label {
+  display: block;
+  color: #666;
+  margin-bottom: 16rpx;
+}
+
+input {
+  width: 100%;
+  height: 80rpx;
+  border: 2rpx solid #eee;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+textarea {
+  width: 100%;
+  height: 200rpx;
+  border: 2rpx solid #eee;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.time-picker {
+  display: flex;
+  justify-content: space-between;
+}
+
+.time-picker picker {
+  width: 48%;
+}
+
+.picker-item {
+  height: 80rpx;
+  line-height: 80rpx;
+  border: 2rpx solid #eee;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+}
+
+button[type="primary"] {
+  margin-top: 40rpx;
+  width: 90%;
+}
+
+/* 分类选择样式 */
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-bottom: 12rpx;
+}
+
+.category-item {
+  padding: 12rpx 24rpx;
+  border-radius: 6rpx;
+  background: #f5f5f5;
+  font-size: 26rpx;
+  color: #666;
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
+}
+
+.category-item.selected {
+  color: #fff;
+  border-color: transparent;
+}
+
+.hint {
+  display: block;
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 12rpx;
+}
+
+/* 在现有样式中添加海报上传相关样式 */
+.poster-upload {
+  width: 100%;
+  height: 400rpx;
+  background: #f5f5f5;
+  border: 2rpx dashed #ddd;
+  border-radius: 8rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #999;
+}
+
+.upload-icon {
+  font-size: 60rpx;
+  margin-bottom: 20rpx;
+}
+
+.upload-text {
+  font-size: 28rpx;
+}
+
+.poster-preview {
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+}
+
+.quick-date-options,
+.quick-time-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-bottom: 20rpx;
+}
+
+.quick-option {
+  padding: 12rpx 24rpx;
+  background: #f5f5f5;
+  border-radius: 6rpx;
+  font-size: 26rpx;
+  color: #666;
+  transition: all 0.3s;
+}
+
+.quick-option.active {
+  background: #07c160;
+  color: #fff;
+  font-weight: 500;
+  transform: scale(1.02);
+  box-shadow: 0 2rpx 8rpx rgba(7, 193, 96, 0.2);
+}
+
+.time-picker {
+  margin-bottom: 20rpx;
+}
+
+.picker-item {
+  padding: 20rpx;
+  background: #f5f5f5;
+  border-radius: 6rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 优化现有的时间选择器样式 */
+.time-picker {
+  display: flex;
+  gap: 20rpx;
+}
+
+.picker-item {
+  flex: 1;
+  text-align: center;
+  background: #f5f5f5;
+  padding: 20rpx;
+  border-radius: 6rpx;
+}
+
+/* 在现有样式基础上添加 */
+.custom-date {
+    background: #f0f7ff;
+    color: #1890ff;
+    border: 1rpx solid #1890ff;
+}
+
+.custom-date.active {
+    background: #1890ff;
+    color: #fff;
+    font-weight: 500;
+    transform: scale(1.02);
+    box-shadow: 0 2rpx 8rpx rgba(24, 144, 255, 0.2);
+}
+
+.custom-date-picker {
+    margin: 20rpx 0;
+}
+
+.selected-date {
+    font-size: 26rpx;
+    margin: 16rpx 0;
+    padding: 16rpx;
+    background: #f6ffed;
+    border: 1rpx solid #b7eb8f;
+    border-radius: 6rpx;
+    display: flex;
+    align-items: center;
+}
+
+.selected-date-label {
+    color: #666;
+    margin-right: 8rpx;
+}
+
+.selected-date-value {
+    color: #07c160;
+    font-weight: 500;
+}
+
+/* 优化现有的快速选择按钮样式 */
+.quick-date-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16rpx;
+    margin-bottom: 20rpx;
+}
+
+.quick-option {
+    padding: 12rpx 24rpx;
+    background: #f5f5f5;
+    border-radius: 6rpx;
+    font-size: 26rpx;
+    color: #666;
+    transition: all 0.3s;
+}
+
+.quick-option.active {
+    background: #07c160;
+    color: #fff;
+}
+
+/* 日历按钮样式 */
+.calendar-btn {
+    display: inline-block;
+    padding: 16rpx 40rpx;
+    background: #1890ff;
+    color: #fff;
+    border-radius: 6rpx;
+    font-size: 28rpx;
+    transition: all 0.3s;
+}
+
+.calendar-btn:active {
+    opacity: 0.8;
+}
+
+/* 时间选择模块样式 */
+.date-section,
+.time-section {
+  margin-bottom: 20rpx;
+}
+
+.quick-dates,
+.common-times {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.date-option,
+.time-option {
+  padding: 16rpx 24rpx;
+  background: #f5f5f5;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  color: #333;
+  transition: all 0.3s;
+}
+
+.date-option.active,
+.time-option.active {
+  background: #07c160;
+  color: #fff;
+  font-weight: 500;
+}
+
+.date-option.custom,
+.time-option.custom {
+  background: #f0f7ff;
+  color: #1890ff;
+  border: 1rpx solid #1890ff;
+}
+
+.date-option.custom.active,
+.time-option.custom.active {
+  background: #1890ff;
+  color: #fff;
+  border-color: #1890ff;
+}
+
+.selected-info {
+  margin-top: 12rpx;
+  padding: 12rpx 16rpx;
+  background: #f6ffed;
+  border: 1rpx solid #b7eb8f;
+  border-radius: 6rpx;
+  font-size: 26rpx;
+  color: #52c41a;
+}
+
+/* 日期输入框样式 */
+.date-input-container {
+    margin: 16rpx 0;
+    padding: 16rpx;
+    background: #fff;
+    border-radius: 8rpx;
+    box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.date-input {
+    width: 100%;
+    height: 80rpx;
+    background: #f5f5f5;
+    border: 2rpx solid #ddd;
+    border-radius: 6rpx;
+    padding: 0 20rpx;
+    font-size: 28rpx;
+    text-align: center;
+    margin-bottom: 8rpx;
+}
+
+.date-input-hint {
+    display: block;
+    font-size: 24rpx;
+    color: #999;
+    text-align: center;
+}
+
+/* 时间输入框样式 */
+.time-input-container {
+    margin: 16rpx 0;
+    padding: 16rpx;
+    background: #fff;
+    border-radius: 8rpx;
+    box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.time-input {
+    width: 100%;
+    height: 80rpx;
+    background: #f5f5f5;
+    border: 2rpx solid #ddd;
+    border-radius: 6rpx;
+    padding: 0 20rpx;
+    font-size: 28rpx;
+    text-align: center;
+    margin-bottom: 8rpx;
+}
+
+.time-input-hint {
+    display: block;
+    font-size: 24rpx;
+    color: #999;
+    text-align: center;
+}
+
+/* 标签相关样式 */
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16rpx;
+    margin: 20rpx 0;
+}
+
+.tag-item {
+    padding: 12rpx 24rpx;
+    background: #f5f5f5;
+    border-radius: 32rpx;
+    font-size: 28rpx;
+    color: #666;
+}
+
+.tag-item.selected {
+    background: #e6f7ff;
+    color: #1890ff;
+    border: 1px solid #91d5ff;
+}
+
+.selected-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16rpx;
+    margin-bottom: 20rpx;
+}
+
+.selected-tag {
+    display: flex;
+    align-items: center;
+    padding: 12rpx 24rpx;
+    background: #e6f7ff;
+    border: 1px solid #91d5ff;
+    border-radius: 32rpx;
+    color: #1890ff;
+    font-size: 28rpx;
+}
+
+.remove-tag {
+    margin-left: 8rpx;
+    font-size: 32rpx;
+    color: #1890ff;
+}
+
+.custom-tag-input {
+    display: flex;
+    align-items: center;
+    gap: 16rpx;
+    margin-top: 20rpx;
+}
+
+.custom-tag-input input {
+    flex: 1;
+    padding: 12rpx 24rpx;
+    background: #f5f5f5;
+    border-radius: 32rpx;
+    font-size: 28rpx;
+}
+
+.custom-tag-input button {
+    padding: 0 32rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    background: #1890ff;
+    color: #fff;
+    border-radius: 32rpx;
+    font-size: 28rpx;
+}
+
+.hint {
+    display: block;
+    margin-top: 16rpx;
+    color: #999;
+    font-size: 24rpx;
+} 

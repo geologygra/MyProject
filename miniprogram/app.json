@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/calendar/calendar",
+    "pages/detail/detail",
+    "pages/edit/edit",
+    "pages/add/add",
+    "pages/profile/profile",
+    "pages/collections/collections",
+    "pages/joinedLectures/joinedLectures"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "讲座信息收集",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#1aad19",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "讲座列表",
+        "iconPath": "/images/home.png",
+        "selectedIconPath": "/images/home-active.png"
+      },
+      {
+        "pagePath": "pages/calendar/calendar",
+        "text": "日历视图",
+        "iconPath": "/images/calendar.png",
+        "selectedIconPath": "/images/calendar-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "个人中心",
+        "iconPath": "/images/profile.png",
+        "selectedIconPath": "/images/profile-active.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.writePhotosAlbum": {
+      "desc": "保存分享图片需要使用您的相册权限"
+    }
+  },
+  "useExtendedLib": {
+    "weui": true
+  },
+  "requiredPrivateInfos": [
+    "chooseLocation",
+    "getLocation"
+  ],
+  "enableShareAppMessage": true,
+  "enableShareTimeline": true
+} 

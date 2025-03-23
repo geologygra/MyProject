@@ -1,0 +1,42 @@
+<view class="container">
+  <!-- 用户信息区域 -->
+  <view class="user-info-section">
+    <block wx:if="{{!hasUserInfo}}">
+      <button 
+        wx:if="{{canIUseGetUserProfile}}" 
+        bindtap="getUserProfile" 
+        class="login-btn"
+      >
+        点击登录
+      </button>
+    </block>
+    <block wx:else>
+      <view class="user-info">
+        <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+        <text class="nickname">{{userInfo.nickName}}</text>
+        <text class="role">{{isAdmin ? '管理员' : '普通用户'}}</text>
+      </view>
+    </block>
+  </view>
+
+  <!-- 功能列表区域 -->
+  <view class="function-list" wx:if="{{hasUserInfo}}">
+    <view class="function-item" bindtap="goToMyLectures">
+      <text class="function-title">我的讲座</text>
+      <text class="arrow">></text>
+    </view>
+    <view class="function-item" bindtap="goToCollections">
+      <text class="function-title">收藏记录</text>
+      <text class="arrow">></text>
+    </view>
+    <view class="function-item" bindtap="goToJoinedLectures">
+      <text class="function-title">我要参加</text>
+      <text class="arrow">></text>
+    </view>
+  </view>
+
+  <!-- 退出登录按钮 -->
+  <view class="logout-section" wx:if="{{hasUserInfo}}">
+    <button class="logout-btn" bindtap="handleLogout">退出登录</button>
+  </view>
+</view> 

@@ -1,0 +1,347 @@
+.search-box {
+  padding: 20rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.search-box input {
+  background: #f5f5f5;
+  padding: 10rpx 20rpx;
+  border-radius: 30rpx;
+}
+
+.filter-box {
+  padding: 20rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.picker {
+  padding: 10rpx 0;
+}
+
+.lecture-list {
+  padding: 20rpx;
+}
+
+.lecture-item {
+  background: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 8rpx;
+}
+
+.lecture-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 16rpx;
+  color: #333;
+}
+
+.lecture-info,
+.lecture-time,
+.lecture-location {
+  color: #666;
+  font-size: 26rpx;
+  margin-bottom: 12rpx;
+}
+
+.lecture-info text,
+.lecture-time text,
+.lecture-location text {
+  margin-right: 20rpx;
+}
+
+.lecture-tags {
+  margin-top: 16rpx;
+  padding-top: 16rpx;
+  border-top: 1rpx solid #f5f5f5;
+}
+
+.tags-wrapper {
+  margin-top: 12rpx;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  align-items: center;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx;
+}
+
+.tag-item {
+  font-size: 24rpx;
+  padding: 4rpx 16rpx;
+  border-radius: 4rpx;
+  margin-right: 8rpx;
+  display: inline-block;
+}
+
+.status-tag {
+  font-size: 24rpx;
+  padding: 4rpx 16rpx;
+  border-radius: 4rpx;
+  margin-left: auto;
+}
+
+.tag-upcoming {
+  background: rgba(24, 144, 255, 0.1);
+  color: #1890ff;
+}
+
+.tag-ongoing {
+  background: rgba(82, 196, 26, 0.1);
+  color: #52c41a;
+}
+
+.tag-ended {
+  background: rgba(0, 0, 0, 0.05);
+  color: #999;
+}
+
+.tag-academic {
+  background: rgba(24, 144, 255, 0.08);
+  color: #1890ff;
+}
+
+.tag-technology {
+  background: rgba(47, 84, 235, 0.08);
+  color: #2f54eb;
+}
+
+.tag-culture {
+  background: rgba(82, 196, 26, 0.08);
+  color: #52c41a;
+}
+
+.tag-science {
+  background: rgba(250, 140, 22, 0.08);
+  color: #fa8c16;
+}
+
+.tag-business {
+  background: rgba(114, 46, 209, 0.08);
+  color: #722ed1;
+}
+
+.tag-medical {
+  background: rgba(235, 47, 150, 0.08);
+  color: #eb2f96;
+}
+
+.tag-education {
+  background: rgba(19, 194, 194, 0.08);
+  color: #13c2c2;
+}
+
+.tag-social {
+  background: rgba(250, 173, 20, 0.08);
+  color: #faad14;
+}
+
+.float-button {
+  position: fixed;
+  right: 30rpx;
+  bottom: 30rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background: #07c160;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+.plus {
+  color: #fff;
+  font-size: 60rpx;
+  font-weight: bold;
+}
+
+/* 点击效果 */
+.float-button:active {
+  transform: scale(0.95);
+  opacity: 0.9;
+}
+
+.lecture-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16rpx;
+}
+
+/* 筛选区域样式 */
+.filter-section {
+  background: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 分类筛选样式 */
+.category-filter {
+  white-space: nowrap;
+  margin-bottom: 20rpx;
+}
+
+.filter-tag {
+  display: inline-block;
+  padding: 12rpx 24rpx;
+  margin-right: 16rpx;
+  border-radius: 6rpx;
+  font-size: 26rpx;
+  color: #666;
+  background: #f5f5f5;
+  transition: all 0.3s;
+}
+
+.filter-tag.active {
+  color: #fff;
+  background: #1890ff;
+}
+
+/* 时间筛选样式 */
+.time-filter {
+  display: flex;
+  justify-content: space-between;
+  gap: 16rpx;
+}
+
+.filter-btn {
+  flex: 1;
+  text-align: center;
+  padding: 16rpx 0;
+  border-radius: 6rpx;
+  font-size: 26rpx;
+  color: #666;
+  background: #f5f5f5;
+  transition: all 0.3s;
+}
+
+.filter-btn.active {
+  color: #fff;
+  background: #1890ff;
+}
+
+.loading-tip {
+  text-align: center;
+  padding: 20rpx 0;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.empty-tip {
+  text-align: center;
+  padding: 60rpx 0;
+  color: #999;
+  font-size: 28rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  margin: 20rpx;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30rpx;
+  gap: 20rpx;
+  background: #fff;
+  margin-top: 20rpx;
+}
+
+.page-btn {
+  padding: 10rpx 30rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 6rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.page-btn.disabled {
+  color: #999;
+  border-color: #eee;
+  pointer-events: none;
+}
+
+.page-numbers {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.page-number {
+  min-width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border: 1rpx solid #ddd;
+  border-radius: 6rpx;
+  font-size: 28rpx;
+}
+
+.page-number.active {
+  background: #07c160;
+  color: #fff;
+  border-color: #07c160;
+}
+
+.ellipsis {
+  font-size: 28rpx;
+  color: #999;
+}
+
+/* 轮播图样式 */
+.swiper-container {
+  width: 100%;
+  height: 360rpx;
+  margin-bottom: 20rpx;
+  background: #f5f5f5;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.no-swiper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 28rpx;
+}
+
+.swiper-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #f5f5f5;
+}
+
+.swiper-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+  color: #fff;
+  padding: 30rpx 20rpx 16rpx;
+  font-size: 28rpx;
+  line-height: 1.4;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* 编辑页面复选框样式 */
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #666;
+} 

@@ -1,0 +1,45 @@
+<view class="container">
+  <view class="calendar-header">
+    <view class="arrow" bindtap="prevMonth">◀</view>
+    <view class="current-date">{{year}}年{{month}}月</view>
+    <view class="arrow" bindtap="nextMonth">▶</view>
+  </view>
+
+  <view class="weekday-row">
+    <view class="weekday" wx:for="{{['日', '一', '二', '三', '四', '五', '六']}}" wx:key="*this">
+      {{item}}
+    </view>
+  </view>
+
+  <view class="calendar-grid">
+    <view class="day {{item.isCurrentMonth ? '' : 'other-month'}} {{item.hasLecture ? 'has-lecture' : ''}} {{item.isToday ? 'today' : ''}} {{item.isSelected ? 'selected' : ''}}"
+          wx:for="{{days}}" 
+          wx:key="date"
+          bindtap="onDayClick"
+          data-date="{{item.date}}">
+      <view class="day-number">{{item.day}}</view>
+      <view class="lecture-dot" wx:if="{{item.hasLecture}}"></view>
+    </view>
+  </view>
+
+  <view class="lecture-list" wx:if="{{selectedDate}}">
+    <view class="list-header">{{selectedDate}} 的讲座</view>
+    <block wx:if="{{dayLectures.length > 0}}">
+      <view class="lecture-item" 
+            wx:for="{{dayLectures}}" 
+            wx:key="_id"
+            bindtap="goToDetail"
+            data-id="{{item._id}}">
+        <view class="lecture-title">{{item.title}}</view>
+        <view class="lecture-info">
+          <text>主讲人：{{item.speaker}}</text>
+          <text>时间：{{item.time}}</text>
+          <text>地点：{{item.location}}</text>
+        </view>
+      </view>
+    </block>
+    <view class="empty-tip" wx:else>
+      当天没有讲座
+    </view>
+  </view>
+</view> 

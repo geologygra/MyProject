@@ -1,0 +1,64 @@
+<view class="container">
+  <form bindsubmit="onSubmit">
+    <view class="form-item">
+      <text class="label">讲座名称</text>
+      <input name="title" placeholder="请输入讲座名称" />
+    </view>
+    
+    <view class="form-item">
+      <text class="label">主讲人</text>
+      <input name="speaker" placeholder="请输入主讲人姓名" />
+    </view>
+    
+    <view class="form-item">
+      <text class="label">时间</text>
+      <view class="time-picker">
+        <picker mode="date" name="date" bindchange="onDateChange">
+          <view class="picker-item">{{selectedDate || '选择日期'}}</view>
+        </picker>
+        <picker mode="time" name="time" bindchange="onTimeChange">
+          <view class="picker-item">{{selectedTime || '选择时间'}}</view>
+        </picker>
+      </view>
+    </view>
+    
+    <view class="form-item">
+      <text class="label">地点</text>
+      <input name="location" placeholder="请输入讲座地点" />
+    </view>
+    
+    <view class="form-item">
+      <text class="label">简介</text>
+      <textarea name="description" placeholder="请输入讲座简介" maxlength="500" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">海报</text>
+      <view class="poster-upload" bindtap="choosePoster">
+        <image wx:if="{{posterUrl}}" src="{{posterUrl}}" mode="aspectFit" class="poster-preview"></image>
+        <view wx:else class="upload-placeholder">
+          <text class="upload-icon">+</text>
+          <text class="upload-text">上传海报</text>
+        </view>
+      </view>
+    </view>
+    
+    <view class="form-item">
+      <text class="label">讲座分类 <text class="required">*</text></text>
+      <view class="category-list">
+        <view 
+          wx:for="{{categories}}" 
+          wx:key="key"
+          class="category-item {{selectedCategories.includes(item.key) ? 'selected' : ''}}"
+          data-key="{{item.key}}"
+          bindtap="toggleCategory"
+        >
+          <text>{{item.text}}</text>
+        </view>
+      </view>
+      <text class="hint">请至少选择一个分类，最多选择{{maxCategories}}个</text>
+    </view>
+    
+    <button form-type="submit" type="primary">提交</button>
+  </form>
+</view> 

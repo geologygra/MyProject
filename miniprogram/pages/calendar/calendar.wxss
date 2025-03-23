@@ -1,0 +1,240 @@
+.container {
+  padding: 20rpx;
+  background: #f5f5f5;
+}
+
+.date-picker {
+  background: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 12rpx;
+}
+
+.picker-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+}
+
+.date-text {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.picker-arrow {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.lecture-list {
+  margin-top: 20rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+}
+
+.lecture-item {
+  padding: 20rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+  transition: all 0.3s;
+}
+
+.lecture-item:active {
+  background: #f9f9f9;
+}
+
+.lecture-item:last-child {
+  border-bottom: none;
+}
+
+.lecture-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.lecture-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.lecture-info text {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.lecture-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.tag {
+  font-size: 24rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 4rpx;
+}
+
+.tag-academic {
+  background: #e6f7ff;
+  color: #1890ff;
+}
+
+.tag-technology {
+  background: #f0f5ff;
+  color: #2f54eb;
+}
+
+.tag-culture {
+  background: #f6ffed;
+  color: #52c41a;
+}
+
+.tag-science {
+  background: #fff7e6;
+  color: #fa8c16;
+}
+
+.empty-tip {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  padding: 40rpx 0;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.current-date {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.arrow {
+  padding: 10rpx 20rpx;
+  color: #07c160;
+  font-size: 28rpx;
+}
+
+.weekday-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  padding: 20rpx 0;
+  background: #fff;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.weekday {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 10rpx;
+}
+
+.day {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 8rpx;
+  transition: all 0.3s;
+}
+
+.day:active {
+  background: rgba(7, 193, 96, 0.1);
+}
+
+.day-number {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.other-month {
+  color: #ccc;
+}
+
+.today {
+  background: #e6f7ff;
+  color: #1890ff;
+  font-weight: bold;
+}
+
+.has-lecture {
+  position: relative;
+}
+
+.lecture-dot {
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  background: #07c160;
+  position: absolute;
+  bottom: 12rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s;
+}
+
+.day.other-month .lecture-dot {
+  background: #d9d9d9;
+}
+
+.day.today .lecture-dot {
+  background: #1890ff;
+}
+
+.selected {
+  background: rgba(7, 193, 96, 0.1);
+  color: #07c160;
+}
+
+.list-header {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.lectures-list {
+  margin-top: 30rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+}
+
+/* 增强选中日期的视觉效果 */
+.day.selected {
+  background: rgba(7, 193, 96, 0.1);
+  color: #07c160;
+  font-weight: bold;
+}
+
+.day.selected .lecture-dot {
+  transform: translateX(-50%) scale(1.2);
+} 

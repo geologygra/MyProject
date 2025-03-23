@@ -1,0 +1,18 @@
+{
+  "permission": {
+    "read": true,
+    "write": true
+  },
+  "schema": {
+    "title": "String",
+    "speaker": "String",
+    "time": "String",
+    "location": "String",
+    "description": "String",
+    "posterUrl": "String",
+    "categories": "Array",
+    "status": "String",
+    "createTime": "Date",
+    "updateTime": "Date"
+  }
+} 

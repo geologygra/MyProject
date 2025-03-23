@@ -1,0 +1,169 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <!-- 轮播图区域 -->
+  <swiper class="swiper-container" 
+    indicator-dots="{{true}}"
+    autoplay="{{true}}" 
+    interval="{{3000}}" 
+    duration="{{500}}"
+    circular="{{true}}"
+    indicator-color="rgba(255, 255, 255, 0.3)"
+    indicator-active-color="#ffffff"
+  >
+    <view wx:if="{{!swiperList.length}}" class="no-swiper">暂无轮播图片</view>
+    <swiper-item 
+      wx:for="{{swiperList}}" 
+      wx:key="_id"
+      bindtap="goToDetail"
+      data-id="{{item._id}}"
+    >
+      <image 
+        src="{{item.posterLink}}" 
+        mode="aspectFit"
+        class="swiper-image" 
+        binderror="onSwiperImageError"
+        data-index="{{index}}"
+      />
+      <view class="swiper-title">{{item.title}}</view>
+    </swiper-item>
+  </swiper>
+
+  <view class="search-box">
+    <input type="text" placeholder="搜索讲座" bindinput="onSearch"/>
+  </view>
+  
+  <view class="filter-section">
+    <scroll-view scroll-x class="category-filter">
+      <view 
+        class="filter-tag {{!currentTag ? 'active' : ''}}"
+        bindtap="onTagFilter"
+        data-tag=""
+      >
+        全部
+      </view>
+      <view 
+        wx:for="{{allTags}}"
+        wx:key="key"
+        class="filter-tag {{currentTag === item ? 'active' : ''}}"
+        bindtap="onTagFilter"
+        data-tag="{{item}}"
+      >
+        {{item}}
+      </view>
+    </scroll-view>
+
+    <view class="time-filter">
+      <view 
+        class="filter-btn {{timeFilter === 'past' ? 'active' : ''}}"
+        bindtap="onTimeFilterTap" 
+        data-type="past"
+      >
+        已结束
+      </view>
+      <view 
+        class="filter-btn {{timeFilter === 'today' ? 'active' : ''}}"
+        bindtap="onTimeFilterTap" 
+        data-type="today"
+      >
+        今天
+      </view>
+      <view 
+        class="filter-btn {{timeFilter === 'tomorrow' ? 'active' : ''}}"
+        bindtap="onTimeFilterTap" 
+        data-type="tomorrow"
+      >
+        明天
+      </view>
+      <view 
+        class="filter-btn {{timeFilter === 'future' ? 'active' : ''}}"
+        bindtap="onTimeFilterTap" 
+        data-type="future"
+      >
+        未来
+      </view>
+    </view>
+  </view>
+
+  <view class="lecture-list">
+    <block wx:for="{{lectures}}" wx:key="_id">
+      <view class="lecture-item" bindtap="goToDetail" data-id="{{item._id}}">
+        <view class="lecture-title">{{item.title}}</view>
+        <view class="lecture-info">
+          <text>主讲人：{{item.speaker}}</text>
+          <text>时间：{{item.time}}</text>
+          <text>地点：{{item.location}}</text>
+        </view>
+        <!-- 标签显示区域 -->
+        <view class="tags-wrapper" wx:if="{{item.tags && item.tags.length > 0}}">
+          <view class="tag-list">
+            <view 
+              wx:for="{{item.tags}}" 
+              wx:for-item="tag"
+              wx:key="*this"
+              class="tag-item"
+              style="background: {{getTagColor(tag).bg}} !important; color: {{getTagColor(tag).text}} !important;"
+            >
+              {{tag}}
+            </view>
+          </view>
+        </view>
+        <!-- 状态标签 -->
+        <text class="status-tag {{item.status === 'upcoming' ? 'tag-upcoming' : item.status === 'ongoing' ? 'tag-ongoing' : 'tag-ended'}}">
+          {{item.status === 'upcoming' ? '未开始' : item.status === 'ongoing' ? '进行中' : '已结束'}}
+        </text>
+      </view>
+    </block>
+  </view>
+
+  <!-- 加载状态提示 -->
+  <view class="loading-tip" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+  <view class="loading-tip" wx:if="{{currentPage === totalPages && lectures.length > 0}}">
+    <text>没有更多了</text>
+  </view>
+  <view class="empty-tip" wx:if="{{!loading && lectures.length === 0}}">
+    <text>暂无讲座</text>
+  </view>
+
+  <!-- 只有管理员才显示添加按钮 -->
+  <view class="float-button" bindtap="goToAdd" wx:if="{{isAdmin}}">
+    <text class="plus">+</text>
+  </view>
+
+  <!-- 分页控件 -->
+  <view class="pagination" wx:if="{{!loading && lectures.length > 0}}">
+    <view class="page-btn {{currentPage <= 1 ? 'disabled' : ''}}" 
+          bindtap="prevPage">上一页</view>
+    
+    <view class="page-numbers">
+      <view class="page-number {{currentPage === 1 ? 'active' : ''}}" 
+            bindtap="onPageChange" 
+            data-page="1">1</view>
+      
+      <view class="ellipsis" wx:if="{{currentPage > 3}}">...</view>
+      
+      <view class="page-number {{currentPage === page ? 'active' : ''}}"
+            wx:for="{{[currentPage-1, currentPage, currentPage+1]}}"
+            wx:for-item="page"
+            wx:key="*this"
+            bindtap="onPageChange"
+            data-page="{{page}}"
+            wx:if="{{page > 1 && page < totalPages}}">
+        {{page}}
+      </view>
+      
+      <view class="ellipsis" wx:if="{{currentPage < totalPages - 2}}">...</view>
+      
+      <view class="page-number {{currentPage === totalPages ? 'active' : ''}}"
+            bindtap="onPageChange"
+            data-page="{{totalPages}}"
+            wx:if="{{totalPages > 1}}">
+        {{totalPages}}
+      </view>
+    </view>
+    
+    <view class="page-btn {{currentPage >= totalPages ? 'disabled' : ''}}" 
+          bindtap="nextPage">下一页</view>
+  </view>
+</view>
